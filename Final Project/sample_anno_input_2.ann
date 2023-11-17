@@ -1,0 +1,6 @@
+T1  Condition 4 12  pregnant
+T2  Condition 16 25 lactating
+O1  OR T1 T2
+T3  Observation 28 101  Have participated in any other studies involving investigational products
+T4  Temporal 102 147    within 30 days prior to entry into this study
+R2  Has_temporal Arg1:T3 Arg2:T4

@@ -1,0 +1,16 @@
+T1  Measurement 25 56	Canadian Cardiovascular Society
+T2  Value 57 69 1, 2, 3 or 4
+R1  Has_value Arg1:T1 Arg2:T2	
+T3  Qualifier 17 23 stable
+R2  Subsumes Arg1:T3 Arg2:T1	
+T4  Qualifier 74 82	unstable
+T5  Measurement 84 99   Braunwald class
+T6  Value 100 102   IB
+R4  Subsumes Arg1:T4 Arg2:T5	
+T7  Condition 130 145   angina pectoris
+O1  OR T3 T4
+R5  Has_qualifier Arg1:T7 Arg2:T3	
+T8  Condition 150 158   ischemia
+T9  Condition 177 196   atypical chest pain
+T10 Scope 17 158    stable (Canadian Cardiovascular Society 1, 2, 3 or 4) or unstable (Braunwald class IB, IC, IIB, IIC, IIIB, IIIC) angina pectoris and ischemia
+O2  OR T9 T10

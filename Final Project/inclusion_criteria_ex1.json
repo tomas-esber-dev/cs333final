@@ -1,0 +1,10 @@
+{
+    "study1": {
+        "nctId": "NCT001",
+        "eligibilityModule": "Must be female. Must be over 18 years old. Must live in Florida."
+    },
+    "study2": {
+        "nctId": "NCT002",
+        "eligibilityModule": ""
+    }
+}
