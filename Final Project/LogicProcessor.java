@@ -15,5 +15,5 @@ public class LogicProcessor {
     //                 /\
     //                T3 T2
 
-    // in-order: T1 R2 T3 R1 T2 T4 OR
+    // in-order: T1 R2 T3 R1 T2 OR T4
 }

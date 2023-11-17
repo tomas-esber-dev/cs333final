@@ -18,7 +18,7 @@ class AnnotationProcessor {
              new TAnnotation("Dummy", "Dummy", "-1", "-1", "Dummy");
 
 	public static void main(String[] args) {
-    List<String> annotations = readAnnotations("sample_anno_input_1.ann");
+    List<String> annotations = readAnnotations("sample_anno_input_3.ann");
 
     createRelationships(annotations);
 
@@ -30,19 +30,21 @@ class AnnotationProcessor {
 
     }
 
+
+    // in-order traversal of our "tree-like" map
     public static void traverseMap(LogicalEntity entity) {
         
         if (entity == null) return;
 
         if (entity instanceof TAnnotation) {
-            System.out.println(entity.annotationId);
+            System.out.println(((TAnnotation) entity).getText());
         } else if (entity instanceof AsteriskAnnotation) {
-            System.out.println(entity.annotationId);
             traverseMap(((AsteriskAnnotation) entity).getArgOne());
+            System.out.println(entity.annotationId);
             traverseMap(((AsteriskAnnotation) entity).getArgTwo());
         } else if (entity instanceof RelationAnnotation) {
-            System.out.println(entity.annotationId);
             traverseMap(((RelationAnnotation) entity).getArgOne());
+            System.out.println(entity.annotationId);
             traverseMap(((RelationAnnotation) entity).getArgTwo());
         }
     }

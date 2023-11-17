@@ -1,9 +1,9 @@
-T1  Measurement 25 56	Canadian Cardiovascular Society
+T1  Measurement 25 56    Canadian Cardiovascular Society
 T2  Value 57 69 1, 2, 3 or 4
 R1  Has_value Arg1:T1 Arg2:T2	
 T3  Qualifier 17 23 stable
 R2  Subsumes Arg1:T3 Arg2:T1	
-T4  Qualifier 74 82	unstable
+T4  Qualifier 74 82 unstable
 T5  Measurement 84 99   Braunwald class
 T6  Value 100 102   IB
 R4  Subsumes Arg1:T4 Arg2:T5	

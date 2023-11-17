@@ -12,4 +12,8 @@ public class TAnnotation extends LogicalEntity {
         this.stopIndex = Integer.parseInt(stopIndex);
         this.annotationText = annotationText;
     }
+
+    public String getText() {
+        return this.annotationText;
+    }
 }
