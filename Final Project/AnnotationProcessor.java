@@ -10,13 +10,41 @@ class AnnotationProcessor {
 
     static Map<String, String> relationships = new HashMap<>();
 
+    static List<LogicalEntity> entities = new ArrayList<>();
+
+    static Map<String, LogicalEntity> map = new HashMap<>();
+
+    static TAnnotation DUMMY = 
+             new TAnnotation("Dummy", "Dummy", "-1", "-1", "Dummy");
+
 	public static void main(String[] args) {
-    List<String> annotations = readAnnotations("sample_anno_input_2.ann");
+    List<String> annotations = readAnnotations("sample_anno_input_1.ann");
 
     createRelationships(annotations);
 
     System.out.println(relationships);
+    // System.out.println(((AsteriskAnnotation) map.get("O1")).getAnnotationType());
+    // System.out.println(((AsteriskAnnotation) map.get("O1")).getArgOne().annotationId);
 
+    traverseMap(map.get("O1"));
+
+    }
+
+    public static void traverseMap(LogicalEntity entity) {
+        
+        if (entity == null) return;
+
+        if (entity instanceof TAnnotation) {
+            System.out.println(entity.annotationId);
+        } else if (entity instanceof AsteriskAnnotation) {
+            System.out.println(entity.annotationId);
+            traverseMap(((AsteriskAnnotation) entity).getArgOne());
+            traverseMap(((AsteriskAnnotation) entity).getArgTwo());
+        } else if (entity instanceof RelationAnnotation) {
+            System.out.println(entity.annotationId);
+            traverseMap(((RelationAnnotation) entity).getArgOne());
+            traverseMap(((RelationAnnotation) entity).getArgTwo());
+        }
     }
 
     public static void createRelationships(List<String> annotations) {
@@ -45,9 +73,13 @@ class AnnotationProcessor {
         // System.out.println("Annotation type: " + annotationType);
         // System.out.println("ARGS: " + args[0] + "," + args[1]);
         // System.out.println("");
-        System.out.println(relationships.getOrDefault(args[0], args[0]));
+        // System.out.println(relationships.getOrDefault(args[0], args[0]));
         relationships.put(annotationId, annotationType+"("+relationships.getOrDefault(args[0], args[0])
                         +","+relationships.getOrDefault(args[1], args[1])+")");
+        
+        AsteriskAnnotation annotation2 = new AsteriskAnnotation(annotationType, map.getOrDefault(args[0], DUMMY), map.getOrDefault(args[1], DUMMY));
+
+        map.put(annotationId, annotation2);
     }
 
     public static void handleAnnotationRType(String annotation) {
@@ -75,6 +107,15 @@ class AnnotationProcessor {
         }
         relationships.put(args[0], relationId+"("+relationships.getOrDefault(args[0],args[0])+
         ","+relationships.getOrDefault(args[1],args[1])+")");
+
+
+        RelationAnnotation relationAnnotation = new RelationAnnotation(relationType, (TAnnotation) map.getOrDefault(args[0], DUMMY), map.getOrDefault(args[1], DUMMY));
+        map.put(relationId, relationAnnotation);
+
+        if (!map.containsKey(args[0])) {
+            map.put(args[0], DUMMY);
+        }
+        map.put(args[0], relationAnnotation);
     }
 
     public static void handleAnnotationTType(String annotation) {
@@ -102,6 +143,10 @@ class AnnotationProcessor {
         // System.out.println("");
 
         relationships.putIfAbsent(annotationId, annotationId);
+
+        TAnnotation annotation2 = new TAnnotation(annotationId, annotationType, annotationIndexes[0],  annotationIndexes[1], annotationText);
+
+        map.putIfAbsent(annotationId, annotation2);
     }
 
     private static List<String> readAnnotations(String fileName) {
