@@ -18,7 +18,7 @@ class AnnotationProcessor {
              new TAnnotation("Dummy", "Dummy", "-1", "-1", "Dummy");
 
 	public static void main(String[] args) {
-    List<String> annotations = readAnnotations("sample_anno_input_3.ann");
+    List<String> annotations = readAnnotations("sample_anno_input_1.ann");
 
     createRelationships(annotations);
 
@@ -26,27 +26,69 @@ class AnnotationProcessor {
     // System.out.println(((AsteriskAnnotation) map.get("O1")).getAnnotationType());
     // System.out.println(((AsteriskAnnotation) map.get("O1")).getArgOne().annotationId);
 
-    traverseMap(map.get("O1"));
+        traverseMap(map.get("O1"));
+        System.out.println();
+        // traverseMap(map.get("T3"));
+        // traverseMap(map.get("T3"));
 
+        LogicalEntity a = map.get("O1");
+
+        TAnnotation t1 = new TAnnotation("T1", "Condition", "0", "3", "metastatic carcinoid tumors");
+        TAnnotation t2 = new TAnnotation("T2", "Procedure", "0", "3", "biopsy");
+        TAnnotation t3 = new TAnnotation("T3", "Value", "0", "3", "proven");
+
+        RelationAnnotation r1 = new RelationAnnotation("Has_value", t3, t2);
+        LogicalEntity r2 = new RelationAnnotation("AND", t1, r1);
+
+        System.out.println("Trees contain logically equivalent subtrees: " + treesAreLogicallyEquivalent(a, r2));
     }
 
+    public static boolean treesAreLogicallyEquivalent(LogicalEntity a, LogicalEntity b) {
 
-    // in-order traversal of our "tree-like" map
+        if (a == null) return false;
+        if (b == null) return false;
+
+        if (a instanceof TAnnotation && b instanceof TAnnotation) {
+            // these are leaf nodes (have no subtree)
+            // check for similarity of texts using similarity index
+        }
+
+        if (subTreesAreLogicallyEquivalent(a, b)) return true;
+
+        return  treesAreLogicallyEquivalent(a.argOne, b) || 
+                treesAreLogicallyEquivalent(a.argTwo, b);
+           
+    }
+
+    public static boolean subTreesAreLogicallyEquivalent(LogicalEntity a, LogicalEntity b) {
+
+        if (a == null && b == null) return true;
+        if (a == null || b == null) return false;
+
+        System.out.println(a.annotationId + "  " + b.annotationId);
+
+        return  (a.annotationId.equals(b.annotationId)) &&
+                subTreesAreLogicallyEquivalent(a.argOne, b.argOne) &&
+                subTreesAreLogicallyEquivalent(a.argTwo, b.argTwo);
+    }
+
+    public static void processLogicalEntities() {
+        for (LogicalEntity e : entities) {
+            if (e instanceof TAnnotation) 
+                System.out.println(((TAnnotation) e).getText());
+            else
+                System.out.println(e.annotationId);
+        }
+    }
+
+    // in-order traversal of our "binary tree-like" map
     public static void traverseMap(LogicalEntity entity) {
         
         if (entity == null) return;
 
-        if (entity instanceof TAnnotation) {
-            System.out.println(((TAnnotation) entity).getText());
-        } else if (entity instanceof AsteriskAnnotation) {
-            traverseMap(((AsteriskAnnotation) entity).getArgOne());
-            System.out.println(entity.annotationId);
-            traverseMap(((AsteriskAnnotation) entity).getArgTwo());
-        } else if (entity instanceof RelationAnnotation) {
-            traverseMap(((RelationAnnotation) entity).getArgOne());
-            System.out.println(entity.annotationId);
-            traverseMap(((RelationAnnotation) entity).getArgTwo());
-        }
+        traverseMap(entity.argOne);
+        System.out.println(entity.annotationId + " " + entity.annotationType);
+        traverseMap(entity.argTwo);
     }
 
     public static void createRelationships(List<String> annotations) {
@@ -94,7 +136,7 @@ class AnnotationProcessor {
         String relationType = annotationElements[0].strip();
 
         String[] args = new String[] { annotationElements[1].split(":")[1].strip() , 
-                                                annotationElements[2].split(":")[1].strip()};
+                                                annotationElements[2].split(":")[1].strip() };
 
         // System.out.println("Relation ID: " + relationId);
         // System.out.println("Relation type: " + relationType);

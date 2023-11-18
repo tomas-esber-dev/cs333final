@@ -7,7 +7,7 @@ public class TAnnotation extends LogicalEntity {
     public String annotationText;
 
     public TAnnotation(String annotationId, String annotationType, String startIndex, String stopIndex, String annotationText) {
-        super(annotationId, annotationType);
+        super(annotationId, annotationType, null, null);
         this.startIndex = Integer.parseInt(startIndex);
         this.stopIndex = Integer.parseInt(stopIndex);
         this.annotationText = annotationText;

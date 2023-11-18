@@ -1,13 +1,9 @@
 public class AsteriskAnnotation extends LogicalEntity {
     
     String annotationType;
-    LogicalEntity argOne;
-    LogicalEntity argTwo;
 
     AsteriskAnnotation(String annotationType, LogicalEntity argOne, LogicalEntity argTwo) {
-        super(annotationType, annotationType);
-        this.argOne = argOne;
-        this.argTwo = argTwo;
+        super(annotationType, annotationType, argOne, argTwo);
     }
 
     public LogicalEntity getArgOne() {

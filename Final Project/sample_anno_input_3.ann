@@ -4,7 +4,7 @@ R1  Has_value Arg1:T1 Arg2:T2
 T3  Qualifier 17 23 stable
 R2  Subsumes Arg1:T3 Arg2:T1	
 T4  Qualifier 74 82 unstable
-T5  Measurement 84 99   Braunwald class
+T5  Measurement 84 99   Braunwald class IB, IC, IIB, IIC, IIIB, IIIC
 T6  Value 100 102   IB
 R4  Subsumes Arg1:T4 Arg2:T5	
 T7  Condition 130 145   angina pectoris
