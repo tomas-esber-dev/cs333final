@@ -12,13 +12,15 @@ class AnnotationProcessor {
 
     static List<LogicalEntity> entities = new ArrayList<>();
 
-    static Map<String, LogicalEntity> map = new HashMap<>();
+    static Map<String, LogicalEntity> logicalMap = new HashMap<>();
 
     static TAnnotation DUMMY = 
              new TAnnotation("Dummy", "Dummy", "-1", "-1", "Dummy");
 
+
+    // Main method for testing purposes
 	public static void main(String[] args) {
-    List<String> annotations = readAnnotations("sample_anno_input_1.ann");
+    List<String> annotations = readAnnotations("sample_ct_anno_input_1.ann");
 
     createRelationships(annotations);
 
@@ -26,12 +28,12 @@ class AnnotationProcessor {
     // System.out.println(((AsteriskAnnotation) map.get("O1")).getAnnotationType());
     // System.out.println(((AsteriskAnnotation) map.get("O1")).getArgOne().annotationId);
 
-        traverseMap(map.get("O1"));
+        traverseMap(logicalMap.get("O1"));
         System.out.println();
         // traverseMap(map.get("T3"));
         // traverseMap(map.get("T3"));
 
-        LogicalEntity a = map.get("O1");
+        LogicalEntity a = logicalMap.get("O1");
 
         TAnnotation t1 = new TAnnotation("T1", "Condition", "0", "3", "metastatic carcinoid tumors");
         TAnnotation t2 = new TAnnotation("T2", "Procedure", "0", "3", "biopsy");
@@ -39,59 +41,38 @@ class AnnotationProcessor {
 
         RelationAnnotation r1 = new RelationAnnotation("Has_value", t3, t2);
         LogicalEntity r2 = new RelationAnnotation("AND", t1, r1);
-
-        System.out.println("Trees contain logically equivalent subtrees: " + treesAreLogicallyEquivalent(a, r2));
     }
 
-    public static boolean treesAreLogicallyEquivalent(LogicalEntity a, LogicalEntity b) {
 
-        if (a == null) return false;
-        if (b == null) return false;
 
-        if (a instanceof TAnnotation && b instanceof TAnnotation) {
-            // these are leaf nodes (have no subtree)
-            // check for similarity of texts using similarity index
-        }
-
-        if (subTreesAreLogicallyEquivalent(a, b)) return true;
-
-        return  treesAreLogicallyEquivalent(a.argOne, b) || 
-                treesAreLogicallyEquivalent(a.argTwo, b);
-           
-    }
-
-    public static boolean subTreesAreLogicallyEquivalent(LogicalEntity a, LogicalEntity b) {
-
-        if (a == null && b == null) return true;
-        if (a == null || b == null) return false;
-
-        System.out.println(a.annotationId + "  " + b.annotationId);
-
-        return  (a.annotationId.equals(b.annotationId)) &&
-                subTreesAreLogicallyEquivalent(a.argOne, b.argOne) &&
-                subTreesAreLogicallyEquivalent(a.argTwo, b.argTwo);
-    }
-
-    public static void processLogicalEntities() {
-        for (LogicalEntity e : entities) {
-            if (e instanceof TAnnotation) 
-                System.out.println(((TAnnotation) e).getText());
-            else
-                System.out.println(e.annotationId);
-        }
-    }
-
-    // in-order traversal of our "binary tree-like" map
-    public static void traverseMap(LogicalEntity entity) {
-        
+    /**
+     * Performs an in-order traversal of our "binary tree-like" map.
+     * @param entity root node of our tree
+     */
+    private static void traverseMap(LogicalEntity entity) {
         if (entity == null) return;
-
         traverseMap(entity.argOne);
         System.out.println(entity.annotationId + " " + entity.annotationType);
         traverseMap(entity.argTwo);
     }
 
-    public static void createRelationships(List<String> annotations) {
+    /**
+     * Public facing method for creating a tree-structured logical entity out of a file path.
+     * @param filePath string with local file path with annotations
+     * @param treeRoot key in the map for the tree root you want to search through
+     * @return constructed tree with distinct node objects
+     */
+    public static LogicalEntity createLogicalEntity(String filePath, String treeRoot) {
+        List<String> annotations = readAnnotations(filePath);
+        createRelationships(annotations);
+        return logicalMap.get(treeRoot);
+    }
+
+    /**
+     * Main logical method containing loop for building nodes out of the annotations.
+     * @param annotations list of annotations in string form.
+     */
+    private static void createRelationships(List<String> annotations) {
 
         for (String annotation : annotations) {
             char annoType = annotation.charAt(0);
@@ -102,7 +83,11 @@ class AnnotationProcessor {
         }
     }
 
-    public static void handleAnnotationAsteriskType(String annotation) {
+    /**
+     * Helper method for creating asterisk nodes (e.g., OR node).
+     * @param annotation list of annotations in string form.
+     */
+    private static void handleAnnotationAsteriskType(String annotation) {
         String annotationId = annotation.substring(0, 3).strip();
 
         annotation = annotation.substring(3).strip();
@@ -113,20 +98,19 @@ class AnnotationProcessor {
 
         String[] args = new String[] { annotationElements[1].strip(), annotationElements[2].strip() };
 
-        // System.out.println("Annotation ID: " + annotationId);
-        // System.out.println("Annotation type: " + annotationType);
-        // System.out.println("ARGS: " + args[0] + "," + args[1]);
-        // System.out.println("");
-        // System.out.println(relationships.getOrDefault(args[0], args[0]));
         relationships.put(annotationId, annotationType+"("+relationships.getOrDefault(args[0], args[0])
                         +","+relationships.getOrDefault(args[1], args[1])+")");
         
-        AsteriskAnnotation annotation2 = new AsteriskAnnotation(annotationType, map.getOrDefault(args[0], DUMMY), map.getOrDefault(args[1], DUMMY));
+        AsteriskAnnotation annotation2 = new AsteriskAnnotation(annotationType, logicalMap.getOrDefault(args[0], DUMMY), logicalMap.getOrDefault(args[1], DUMMY));
 
-        map.put(annotationId, annotation2);
+        logicalMap.put(annotationId, annotation2);
     }
 
-    public static void handleAnnotationRType(String annotation) {
+    /**
+     * Helper method for creating relation nodes (e.g., Has_value node, AND node).
+     * @param annotation list of annotations in string form.
+     */
+    private static void handleAnnotationRType(String annotation) {
         String relationId = annotation.substring(0, 3).strip();
 
         annotation = annotation.substring(3).strip();
@@ -138,14 +122,10 @@ class AnnotationProcessor {
         String[] args = new String[] { annotationElements[1].split(":")[1].strip() , 
                                                 annotationElements[2].split(":")[1].strip() };
 
-        // System.out.println("Relation ID: " + relationId);
-        // System.out.println("Relation type: " + relationType);
-        // System.out.println("ARGS: " + args[0] + "," + args[1]);
-        // System.out.println("");
-
         relationships.putIfAbsent(relationId, relationships.getOrDefault(args[0], args[0])+","
             +relationships.getOrDefault(args[1], args[1]));
 
+        // visual logical representation of tree
         if (!relationships.containsKey(args[0])) {
             relationships.put(args[0], args[0]);
         }
@@ -153,16 +133,20 @@ class AnnotationProcessor {
         ","+relationships.getOrDefault(args[1],args[1])+")");
 
 
-        RelationAnnotation relationAnnotation = new RelationAnnotation(relationType, (TAnnotation) map.getOrDefault(args[0], DUMMY), map.getOrDefault(args[1], DUMMY));
-        map.put(relationId, relationAnnotation);
+        RelationAnnotation relationAnnotation = new RelationAnnotation(relationType, logicalMap.getOrDefault(args[0], DUMMY), logicalMap.getOrDefault(args[1], DUMMY));
+        logicalMap.put(relationId, relationAnnotation);
 
-        if (!map.containsKey(args[0])) {
-            map.put(args[0], DUMMY);
+        if (!logicalMap.containsKey(args[0])) {
+            logicalMap.put(args[0], DUMMY);
         }
-        map.put(args[0], relationAnnotation);
+        logicalMap.put(args[0], relationAnnotation);
     }
 
-    public static void handleAnnotationTType(String annotation) {
+    /**
+     * Helper method for creating T nodes (e.g., Condition node, Value node).
+     * @param annotation list of annotations in string form.
+     */
+    private static void handleAnnotationTType(String annotation) {
         // parse annotation id
         String annotationId = annotation.substring(0, 3).strip();
 
@@ -180,22 +164,21 @@ class AnnotationProcessor {
 
         annotationText = annotationText.strip();
 
-        // System.out.println("Anno ID : " + annotationId);
-        // System.out.println("Anno type : " + annotationType);
-        // System.out.println("Anno indexes : " + annotationIndexes[0] + "," + annotationIndexes[1]);
-        // System.out.println("Anno text : " + annotationText);
-        // System.out.println("");
-
         relationships.putIfAbsent(annotationId, annotationId);
 
         TAnnotation annotation2 = new TAnnotation(annotationId, annotationType, annotationIndexes[0],  annotationIndexes[1], annotationText);
 
-        map.putIfAbsent(annotationId, annotation2);
+        logicalMap.putIfAbsent(annotationId, annotation2);
     }
 
+    /**
+     * Read in .txt and .ann files for labeled patient data and clinical trial data.
+     * @param fileName local file path string for txt file
+     * @return List<String> of lines in the file
+     */
     private static List<String> readAnnotations(String fileName) {
-    List<String> annos = new ArrayList<>();
-    BufferedReader reader;
+        List<String> annos = new ArrayList<>();
+        BufferedReader reader;
 		try {
 			reader = new BufferedReader(new FileReader(fileName));
 			String line = reader.readLine();

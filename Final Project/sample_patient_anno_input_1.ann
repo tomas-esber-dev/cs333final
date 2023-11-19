@@ -1,0 +1,5 @@
+T1	Condition 28 55 metastatic carcinoid tumors
+T2	Value 21 27 proven
+T3	Procedure 14 20 biopsy
+R1	Has_value Arg1:T3 Arg2:T2
+R2	AND Arg1:T1 Arg2:T3	
