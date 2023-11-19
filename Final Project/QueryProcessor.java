@@ -68,6 +68,8 @@ public class QueryProcessor {
     }
 
     /**
+     * Public-facing "API" call to determine if a list of patient are eligible for a list of trial. 
+     * 
      * Determine for each patient x in a set of patients X, if x is eligible for each trial y in a set of trials Y.
      * @return a map with all possible patient-trial matchings and if the patient is eligible or not for the trial.
      */
@@ -94,11 +96,11 @@ public class QueryProcessor {
      * Check to see if two logical trees (with nodes: TAnnotation, RelationAnnotation, AsteriskAnnotation) are equal, or to see
      * if the any subtrees of the clinical trial tree are contained within the patient tree.
      * 
-     * @param a
-     * @param b
-     * @return
+     * @param a root node
+     * @param b root node
+     * @return true if trees are logically equivalent
      */
-    public static boolean treesAreLogicallyEquivalent(LogicalEntity a, LogicalEntity b, double similarityThreshhold) {
+    private static boolean treesAreLogicallyEquivalent(LogicalEntity a, LogicalEntity b, double similarityThreshhold) {
 
         if (a == null) return false;
         if (b == null) return false;
@@ -117,7 +119,7 @@ public class QueryProcessor {
      * @param similarityThreshhold threshhold for dtermining similarity of nodes
      * @return true if trees are equal or sufficiently "similar"
      */
-    public static boolean subTreesAreLogicallyEquivalent(LogicalEntity a, LogicalEntity b, double similarityThreshhold) {
+    private static boolean subTreesAreLogicallyEquivalent(LogicalEntity a, LogicalEntity b, double similarityThreshhold) {
 
         if (a == null && b == null) return true;
         if (a == null || b == null) return false;
@@ -159,7 +161,7 @@ public class QueryProcessor {
         }
 
         double score1 = StringSimilarityUtils.nGramSimilarity(s1, s2, 3);
-        double score2 = StringSimilarityUtils.sorensenDiceSimilarity(s1, s2);
+        double score2 = 1.5 * StringSimilarityUtils.sorensenDiceSimilarity(s1, s2); // extra weight to score2
 
         return Math.min(1.0, (score1 + score2) / 2.0);
     }
