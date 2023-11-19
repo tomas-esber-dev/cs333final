@@ -1,7 +1,5 @@
 public class TAnnotation extends LogicalEntity {
     
-    public String annotationId;
-    public String annotationType;
     public int startIndex;
     public int stopIndex;
     public String annotationText;

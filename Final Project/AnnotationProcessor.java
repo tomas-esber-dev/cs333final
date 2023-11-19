@@ -12,7 +12,7 @@ class AnnotationProcessor {
 
     static List<LogicalEntity> entities = new ArrayList<>();
 
-    static Map<String, LogicalEntity> logicalMap = new HashMap<>();
+    static Map<String, LogicalEntity> logicalMapTest = new HashMap<>();
 
     static TAnnotation DUMMY = 
              new TAnnotation("Dummy", "Dummy", "-1", "-1", "Dummy");
@@ -28,12 +28,12 @@ class AnnotationProcessor {
     // System.out.println(((AsteriskAnnotation) map.get("O1")).getAnnotationType());
     // System.out.println(((AsteriskAnnotation) map.get("O1")).getArgOne().annotationId);
 
-        traverseMap(logicalMap.get("O1"));
+        traverseMap(logicalMapTest.get("O1"));
         System.out.println();
         // traverseMap(map.get("T3"));
         // traverseMap(map.get("T3"));
 
-        LogicalEntity a = logicalMap.get("O1");
+        LogicalEntity a = logicalMapTest.get("O1");
 
         TAnnotation t1 = new TAnnotation("T1", "Condition", "0", "3", "metastatic carcinoid tumors");
         TAnnotation t2 = new TAnnotation("T2", "Procedure", "0", "3", "biopsy");
@@ -64,7 +64,8 @@ class AnnotationProcessor {
      */
     public static LogicalEntity createLogicalEntity(String filePath, String treeRoot) {
         List<String> annotations = readAnnotations(filePath);
-        createRelationships(annotations);
+        Map<String, LogicalEntity> logicalMap = createRelationships(annotations);
+        // traverseMap(logicalMap.get(treeRoot));
         return logicalMap.get(treeRoot);
     }
 
@@ -72,22 +73,23 @@ class AnnotationProcessor {
      * Main logical method containing loop for building nodes out of the annotations.
      * @param annotations list of annotations in string form.
      */
-    private static void createRelationships(List<String> annotations) {
-
+    private static Map<String, LogicalEntity> createRelationships(List<String> annotations) {
+        Map<String, LogicalEntity> logicalMap = new HashMap<>();
         for (String annotation : annotations) {
             char annoType = annotation.charAt(0);
             
-            if (annoType == 'T') handleAnnotationTType(annotation);
-            else if (annoType == 'R') handleAnnotationRType(annotation);
-            else if (annoType == 'O') handleAnnotationAsteriskType(annotation);
+            if (annoType == 'T') handleAnnotationTType(annotation, logicalMap);
+            else if (annoType == 'R') handleAnnotationRType(annotation, logicalMap);
+            else if (annoType == 'O') handleAnnotationAsteriskType(annotation, logicalMap);
         }
+        return logicalMap;
     }
 
     /**
      * Helper method for creating asterisk nodes (e.g., OR node).
      * @param annotation list of annotations in string form.
      */
-    private static void handleAnnotationAsteriskType(String annotation) {
+    private static void handleAnnotationAsteriskType(String annotation, Map<String, LogicalEntity> logicalMap) {
         String annotationId = annotation.substring(0, 3).strip();
 
         annotation = annotation.substring(3).strip();
@@ -110,7 +112,7 @@ class AnnotationProcessor {
      * Helper method for creating relation nodes (e.g., Has_value node, AND node).
      * @param annotation list of annotations in string form.
      */
-    private static void handleAnnotationRType(String annotation) {
+    private static void handleAnnotationRType(String annotation, Map<String, LogicalEntity> logicalMap) {
         String relationId = annotation.substring(0, 3).strip();
 
         annotation = annotation.substring(3).strip();
@@ -146,7 +148,7 @@ class AnnotationProcessor {
      * Helper method for creating T nodes (e.g., Condition node, Value node).
      * @param annotation list of annotations in string form.
      */
-    private static void handleAnnotationTType(String annotation) {
+    private static void handleAnnotationTType(String annotation, Map<String, LogicalEntity> logicalMap) {
         // parse annotation id
         String annotationId = annotation.substring(0, 3).strip();
 

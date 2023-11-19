@@ -70,11 +70,9 @@ public class QueryProcessor {
             LogicalEntity patient = AnnotationProcessor.createLogicalEntity(patientFiles.get(patientId), "R2");
             for (String trialId : clinicalTrialFiles.keySet()) {
                 LogicalEntity trial = AnnotationProcessor.createLogicalEntity(clinicalTrialFiles.get(trialId), "O1");
-
                 boolean isEligible = determineIfPatientEligibleForTrial(trial, patient);
                 String key = patientId + "," + trialId;
                 patientToTrialMappings.putIfAbsent(key, isEligible);
-                
             }
         }
         return patientToTrialMappings;
@@ -108,6 +106,7 @@ public class QueryProcessor {
         if (a == null && b == null) return true;
         if (a == null || b == null) return false;
 
+
         boolean nodesAreEqual;
 
         if (a instanceof TAnnotation && b instanceof TAnnotation) {
@@ -122,6 +121,17 @@ public class QueryProcessor {
     }
 
     private static double calculateSimilarityScore(TAnnotation node1, TAnnotation node2) {
-        return 0.4;
+        String s1 = node1.annotationText;
+        String s2 = node2.annotationText;
+
+        // if strings are the exact same, then return 1.0
+        if (s1.equals(s2)) {
+            return 1.0;
+        }
+        // if either string is a substring of the other, then return 1.0
+        if (s1.contains(s2) || s2.contains(s1)) {
+            return 1.0;
+        }
+        return 0.0;
     }
 }
