@@ -52,8 +52,8 @@ public class QueryProcessor {
      */
     public double calculateAccuracyForPatientTrialMatchings() {
         Map<String,Boolean> predictedMatchings = findMatchingsForPatientsAndTrials();
-        int totalSeen = 0;
-        int correctlyMatched = 0;
+        double totalSeen = 0.0;
+        double correctlyMatched = 0.0;
 
         for (String patientTrialMatch : predictedMatchings.keySet()) {
             if (trueMatchings.containsKey(patientTrialMatch)) {
@@ -63,7 +63,7 @@ public class QueryProcessor {
                 totalSeen++;
             }
         }
-        if (totalSeen == 0) return -1; // error handling
+        if (totalSeen == 0.0) return -1; // error handling
         return correctlyMatched / totalSeen;
     }
 
@@ -77,11 +77,14 @@ public class QueryProcessor {
         Map<String,Boolean> patientToTrialMappings = new HashMap<>();
         
         for (String patientId : patientFiles.keySet()) {
-            LogicalEntity patient = AnnotationProcessor.createLogicalEntity(patientFiles.get(patientId), "R2");
+            String[] patientMetadata = patientFiles.get(patientId).split(",");
+            LogicalEntity patient = AnnotationProcessor.createLogicalEntity(patientMetadata[0], patientMetadata[1]);
             for (String trialId : clinicalTrialFiles.keySet()) {
-                LogicalEntity trial = AnnotationProcessor.createLogicalEntity(clinicalTrialFiles.get(trialId), "O1");
+                String[] trialMetadata = clinicalTrialFiles.get(trialId).split(",");
+                LogicalEntity trial = AnnotationProcessor.createLogicalEntity(trialMetadata[0], trialMetadata[1]);
                 boolean isEligible = determineIfPatientEligibleForTrial(trial, patient);
                 String key = patientId + "," + trialId;
+                System.out.println(key + " " +isEligible);
                 patientToTrialMappings.putIfAbsent(key, isEligible);
             }
         }
@@ -123,7 +126,6 @@ public class QueryProcessor {
 
         if (a == null && b == null) return true;
         if (a == null || b == null) return false;
-
 
         boolean nodesAreEqual;
 
