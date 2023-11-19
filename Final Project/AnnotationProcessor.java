@@ -8,10 +8,13 @@ import java.util.Map;
 
 class AnnotationProcessor {
 
+    // used for visualizing the tree
     static Map<String, String> relationships = new HashMap<>();
 
+    // used for testing
     static List<LogicalEntity> entities = new ArrayList<>();
 
+    // testing purposes
     static Map<String, LogicalEntity> logicalMapTest = new HashMap<>();
 
     static TAnnotation DUMMY = 
@@ -65,7 +68,6 @@ class AnnotationProcessor {
     public static LogicalEntity createLogicalEntity(String filePath, String treeRoot) {
         List<String> annotations = readAnnotations(filePath);
         Map<String, LogicalEntity> logicalMap = createRelationships(annotations);
-        // traverseMap(logicalMap.get(treeRoot));
         return logicalMap.get(treeRoot);
     }
 
@@ -134,7 +136,7 @@ class AnnotationProcessor {
         relationships.put(args[0], relationId+"("+relationships.getOrDefault(args[0],args[0])+
         ","+relationships.getOrDefault(args[1],args[1])+")");
 
-
+        // if a dummy node appears in the tree, we know something went wrong
         RelationAnnotation relationAnnotation = new RelationAnnotation(relationType, logicalMap.getOrDefault(args[0], DUMMY), logicalMap.getOrDefault(args[1], DUMMY));
         logicalMap.put(relationId, relationAnnotation);
 

@@ -46,6 +46,10 @@ public class QueryProcessor {
         this.trueMatchings = trueMatchings;
     }
 
+    /**
+     * Calculate how accurate our matching methodology is for a given set of patients and clinical trials.
+     * @return a score of our algorithmic accuracy
+     */
     public double calculateAccuracyForPatientTrialMatchings() {
         Map<String,Boolean> predictedMatchings = findMatchingsForPatientsAndTrials();
         int totalSeen = 0;
@@ -63,6 +67,10 @@ public class QueryProcessor {
         return correctlyMatched / totalSeen;
     }
 
+    /**
+     * Determine for each patient x in a set of patients X, if x is eligible for each trial y in a set of trials Y.
+     * @return a map with all possible patient-trial matchings and if the patient is eligible or not for the trial.
+     */
     public Map<String,Boolean> findMatchingsForPatientsAndTrials() {
         Map<String,Boolean> patientToTrialMappings = new HashMap<>();
         
@@ -101,6 +109,14 @@ public class QueryProcessor {
                 treesAreLogicallyEquivalent(a.argTwo, b, similarityThreshhold);
     }
 
+    /**
+     * Helper method for determining if two subtrees are logically equivalent by traversing through the trees in order.
+     * 
+     * @param a root node
+     * @param b root node
+     * @param similarityThreshhold threshhold for dtermining similarity of nodes
+     * @return true if trees are equal or sufficiently "similar"
+     */
     public static boolean subTreesAreLogicallyEquivalent(LogicalEntity a, LogicalEntity b, double similarityThreshhold) {
 
         if (a == null && b == null) return true;
@@ -120,6 +136,15 @@ public class QueryProcessor {
                 subTreesAreLogicallyEquivalent(a.argTwo, b.argTwo, similarityThreshhold);
     }
 
+    /**
+     * Similarity score matcher between two strings. In essence, this is intended to be a smart algorithm that does NOT use
+     * machine learning to determine if two strings are equal or similar, but instead relies on traditional 
+     * deterministic algorithmic strategies.
+     * 
+     * @param node1 leaf node being compared
+     * @param node2 leaf node being compared
+     * @return similarity score between the texts stored within both nodes
+     */
     private static double calculateSimilarityScore(TAnnotation node1, TAnnotation node2) {
         String s1 = node1.annotationText;
         String s2 = node2.annotationText;
@@ -132,6 +157,10 @@ public class QueryProcessor {
         if (s1.contains(s2) || s2.contains(s1)) {
             return 1.0;
         }
-        return 0.0;
+
+        double score1 = StringSimilarityUtils.nGramSimilarity(s1, s2, 3);
+        double score2 = StringSimilarityUtils.sorensenDiceSimilarity(s1, s2);
+
+        return Math.min(1.0, (score1 + score2) / 2.0);
     }
 }
