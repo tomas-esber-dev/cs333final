@@ -1,3 +1,4 @@
+package Approach_1_Code;
 public class RelationAnnotation extends LogicalEntity {
     
     String annotationType;

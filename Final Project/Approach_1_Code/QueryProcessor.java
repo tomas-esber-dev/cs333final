@@ -1,3 +1,4 @@
+package Approach_1_Code;
 /*
  * Given a query A (i.e., a labeled patient health record) and a clinical trial B, this class will determine if the patient is 
  * eligible to participate in the clinical trial.
@@ -84,7 +85,6 @@ public class QueryProcessor {
                 LogicalEntity trial = AnnotationProcessor.createLogicalEntity(trialMetadata[0], trialMetadata[1]);
                 boolean isEligible = determineIfPatientEligibleForTrial(trial, patient);
                 String key = patientId + "," + trialId;
-                System.out.println(key + " " +isEligible);
                 patientToTrialMappings.putIfAbsent(key, isEligible);
             }
         }

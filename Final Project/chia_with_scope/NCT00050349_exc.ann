@@ -14,14 +14,14 @@ T10	Procedure 278 299	head CT with contrast
 T11	Scope 238 265	history of brain metastases
 A1	Optional T11
 R4	AND Arg1:T11 Arg2:T10	
-T12	Condition 359 374	bone metastases
-T13	Procedure 432 464	hepatic artery chemoembolization
-T14	Temporal 465 489	within the last 6 months
-T15	Temporal 491 500	one month
+T12	Condition 359 374 bone metastases
+T13	Procedure 432 464 hepatic artery chemoembolization
+T14	Temporal 465 489 within the last 6 months
+T15	Temporal 491 500 one month
 T16	Observation 514 547	other sites of measurable disease
 R5	Has_context Arg1:T15 Arg2:T16	
 *	OR T14 T15
-T17	Scope 465 547	within the last 6 months (one month if there are other sites of measurable disease
+T17	Scope 465 547 within the last 6 months (one month if there are other sites of measurable disease
 R6	Has_scope Arg1:T13 Arg2:T17	
 T18	Procedure 597 627	radioactive directed therapies
 T19	Drug 676 686	epothilone
