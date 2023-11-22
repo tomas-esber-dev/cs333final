@@ -7,5 +7,4 @@ Concurrent severe medical problems unrelated to the malignancy which would limit
 Received radiation to more than 10% of bone. 
 Prior treatment with topotecan or gemcitabine. 
 Hypersensitivity to camptothecin or nucleoside analogues. 
-Use of an investigational agent within 30 days.       
-    
+Use of an investigational agent within 30 days.

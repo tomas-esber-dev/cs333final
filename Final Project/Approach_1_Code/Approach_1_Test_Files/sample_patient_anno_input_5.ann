@@ -1,0 +1,15 @@
+T1	Measurement 30 54 Breast - Karnofsky score
+T2	Value 55 59 >50
+R1	Has_value Arg1:T1 Arg2:T2	
+T3	Measurement 97 147 Gynecologic Oncology Group (GOG) performance score
+T4	Value 148 150 ≤2
+R2	Has_value Arg1:T3 Arg2:T4	
+T5	Person 155 161 female
+T6	Condition 169 191 childbearing potential
+T7	Scope 155 191 female and of childbearing potential
+T8	Observation 197 207 willing to
+T9	Procedure 221 234 contraception
+T10	Drug 236 244 hormonal
+T11	Procedure 246 260 barrier method
+T12	Procedure 262 272 abstinence
+O1  OR T10 T11 T12

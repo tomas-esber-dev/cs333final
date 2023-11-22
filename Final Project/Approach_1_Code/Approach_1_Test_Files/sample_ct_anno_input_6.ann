@@ -1,0 +1,7 @@
+T1 Condition 0 0 Cancer
+T2 Value 0 0 Severe
+R1 Has_value Arg1:T1 Arg2:T2
+T3 Condition 0 0 ADHD
+T4 Value 0 0 Mild
+R2 Has_value Arg1:T3 Arg2:T4
+O1 OR T1 T3

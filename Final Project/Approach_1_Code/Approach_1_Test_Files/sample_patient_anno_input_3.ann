@@ -1,0 +1,3 @@
+T9  Condition 177 196   atypical chest pain
+T10 Scope 17 158    stable (Canadian Cardiovascular Society 1, 2, 3 or 4) or unstable (Braunwald class IB, IC, IIB, IIC, IIIB, IIIC) angina pectoris and ischemia
+O2  OR T9 T10

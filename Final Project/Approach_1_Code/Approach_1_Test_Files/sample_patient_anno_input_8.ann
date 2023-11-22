@@ -1,0 +1,7 @@
+T1	Value 148 150 >18
+T2  Measurement 0 0 years old
+R1  Has_value Arg1:T2 Arg2:T1
+T5	Person 155 161 female
+T6	Condition 169 191 childbearing potential
+R2  AND Arg1:T5 Arg2:T6
+R3  AND Arg1:T5 Arg2:T2

@@ -1,0 +1,5 @@
+T1 Person 0 0 Male
+T2 Person 0 0 Over 18
+R1 Has_value Arg1:T1 Arg2:T2
+T3 Condition 0 0 ADHD
+R2 AND Arg1:T3 Arg2:T1

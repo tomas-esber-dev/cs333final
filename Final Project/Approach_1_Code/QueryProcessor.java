@@ -44,7 +44,7 @@ public class QueryProcessor {
     QueryProcessor(Map<String,String> patientFiles, Map<String,String> clinicalTrialFiles, Map<String, Boolean> trueMatchings) {
         this.patientFiles = patientFiles;
         this.clinicalTrialFiles = clinicalTrialFiles;
-        this.trueMatchings = trueMatchings;
+        this.trueMatchings = new HashMap<>(trueMatchings);
     }
 
     /**
@@ -61,8 +61,12 @@ public class QueryProcessor {
                 if (trueMatchings.get(patientTrialMatch) == predictedMatchings.get(patientTrialMatch)) {
                     correctlyMatched++;
                 }
-                totalSeen++;
+            } else {
+                if (!predictedMatchings.get(patientTrialMatch)) {
+                    correctlyMatched++;
+                }
             }
+            totalSeen++;
         }
         if (totalSeen == 0.0) return -1; // error handling
         return correctlyMatched / totalSeen;
@@ -92,7 +96,7 @@ public class QueryProcessor {
     }
 
     public static boolean determineIfPatientEligibleForTrial(LogicalEntity trial, LogicalEntity patient) {
-        return treesAreLogicallyEquivalent(trial, patient, 0.4);
+        return treesAreLogicallyEquivalent(trial, patient, 0.5);
     }
 
     /**
@@ -165,6 +169,7 @@ public class QueryProcessor {
         double score1 = StringSimilarityUtils.nGramSimilarity(s1, s2, 3);
         double score2 = 1.5 * StringSimilarityUtils.sorensenDiceSimilarity(s1, s2); // extra weight to score2
 
+        System.out.println(Math.min(1.0, (score1 + score2) / 2.0));
         return Math.min(1.0, (score1 + score2) / 2.0);
     }
 }
