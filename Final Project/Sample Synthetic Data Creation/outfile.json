@@ -1,0 +1,270 @@
+{
+    "studies": [
+        {
+            "identificationModule": {
+                "nctId": "NCT01328951",
+                "orgStudyIdInfo": {
+                    "id": "BO25460"
+                },
+                "organization": {
+                    "fullName": "Hoffmann-La Roche",
+                    "class": "INDUSTRY"
+                },
+                "briefTitle": "A Study of First-line Maintenance Erlotinib Versus Erlotinib at Disease Progression in Participants With Advanced Non-Small Cell Lung Cancer (NSCLC) Who Have Not Progressed Following Platinum-Based Chemotherapy",
+                "officialTitle": "A Randomized, Double-Blind, Placebo-Controlled Phase III Study of First-Line Maintenance Tarceva Versus Tarceva at the Time of Disease Progression in Patients With Advanced Non-Small Cell Lung Cancer (NSCLC) Who Have Not Progressed Following 4 Cycles of Platinum-Based Chemotherapy"
+            },
+            "eligibilityModule": {
+                "eligibilityCriteria": "Inclusion Criteria:\n\n* Adults greater than or equal to (\u2265) 18 years of age, or legal age of consent if greater than 18\n* Advanced or recurrent (Stage IIIB) or metastatic (Stage IV) NSCLC\n* Completion of 4 cycles of platinum-based chemotherapy without progression (end of last chemotherapy cycle less than or equal to \\[\u2264\\] 28 days prior to randomization)\n* Eastern Cooperative Oncology Group (ECOG) performance status 0 or 1\n\nExclusion Criteria:\n\n* Prior exposure to agents directed at human epidermal growth factor receptor (HER) axis (e.g. erlotinib, gefitinib, cetuximab)\n* Participants whose tumors harbor an EGFR-activating mutation\n* Prior chemotherapy or therapy with systemic anti-neoplastic therapy for advanced disease before Screening\n* Use of pemetrexed in maintenance setting (pemetrexed allowed during the chemotherapy run-in)\n* Participants who have undergone complete tumor resection after responding to the platinum-based chemotherapy during the Screening phase\n* Any other malignancies within 5 years, except for curatively resected carcinoma in situ of the cervix, basal or squamous cell skin cancer, ductal carcinoma in situ, or organ-confined prostate cancer\n* Central nervous system (CNS) metastases or spinal cord compression that has not been definitely treated with surgery and/or radiation, or treated CNS metastases or spinal cord compression without stable disease for \u22652 months\n* Human immunodeficiency virus (HIV), hepatitis B, or hepatitis C infection\n* Any inflammatory changes of the surface of the eye",
+                "healthyVolunteers": false,
+                "sex": "ALL",
+                "minimumAge": "18 Years",
+                "stdAges": [
+                    "ADULT",
+                    "OLDER_ADULT"
+                ]
+            }
+        },
+        {
+            "identificationModule": {
+                "nctId": "NCT01466751",
+                "orgStudyIdInfo": {
+                    "id": "IRB-19338"
+                },
+                "organization": {
+                    "fullName": "Stanford University",
+                    "class": "OTHER"
+                },
+                "briefTitle": "Neurobehavioral Intervention as a Novel Treatment Approach for Emotion-Regulatory Deficits",
+                "officialTitle": "Neurobehavioral Intervention as a Novel Treatment Approach for Emotion-Regulatory Deficits"
+            },
+            "eligibilityModule": {
+                "eligibilityCriteria": "Inclusion Criteria:\n\n* current anxiety or depression symptoms\n* internet access\n\nExclusion Criteria:\n\n* lifetime psychotic disorder, past-year substance dependence",
+                "healthyVolunteers": false,
+                "sex": "ALL",
+                "minimumAge": "18 Years",
+                "maximumAge": "65 Years",
+                "stdAges": [
+                    "ADULT",
+                    "OLDER_ADULT"
+                ]
+            }
+        },
+        {
+            "identificationModule": {
+                "nctId": "NCT01111851",
+                "orgStudyIdInfo": {
+                    "id": "0869-183"
+                },
+                "secondaryIdInfos": [
+                    {
+                        "id": "2010_531"
+                    }
+                ],
+                "organization": {
+                    "fullName": "Merck Sharp & Dohme LLC",
+                    "class": "INDUSTRY"
+                },
+                "briefTitle": "Aprepitant and Fosaprepitant Time-on-Target PET (Positron Emission Tomography) Study (0869-183)",
+                "officialTitle": "MK0869 and MK0517 Time-on-Target PET Study"
+            },
+            "eligibilityModule": {
+                "eligibilityCriteria": "Inclusion Criteria:\n\n* Generally healthy\n* Female participants must be of non-childbearing potential\n* Non-smoker or has not used nicotine or nicotine-containing products for at least 6 months\n\nExclusion Criteria:\n\n* History of a clinically significant psychiatric disorder over the last 5 to 10 years\n* History of stroke, chronic seizures, or major neurological disorder\n* History of clinically significant endocrine, gastrointestinal, cardiovascular, hematological, hepatic, immunological, renal, respiratory, or genitourinary abnormalities or diseases\n* History of neoplastic disease\n* Excessive consumption of alcohol (3 drinks/day) or caffeinated beverages (6 servings/day)\n* Major surgery, donated or lost 1 unit of blood within 4 weeks\n* Participated in another investigational study within 4 weeks\n* History of significant drug allergy or any clinically significant adverse\n\nexperiences related to EMEND\u2122, dexamethasone, or ondansetron\n\n* History of significant multiple and/or severe allergies\n* History of anaphylactic reaction or significant intolerability to prescription or non-prescription drugs or food\n* Current drug/alcohol abuse, or history of such within 2 years\n* Participation in a PET study or other study involving administration of a radioactive substance or ionizing radiation within the prior 12 months\n* Extensive radiological examination within the prior 12 months\n* Magnetizable metal prostheses or devices (Magnetic Resonance Imaging (MRI) hazard)\n* History of claustrophobia",
+                "healthyVolunteers": true,
+                "sex": "ALL",
+                "minimumAge": "18 Years",
+                "maximumAge": "55 Years",
+                "stdAges": [
+                    "ADULT"
+                ]
+            }
+        },
+        {
+            "identificationModule": {
+                "nctId": "NCT02631551",
+                "orgStudyIdInfo": {
+                    "id": "GPL/CT/2014/016/III"
+                },
+                "organization": {
+                    "fullName": "Glenmark Specialty S.A.",
+                    "class": "INDUSTRY"
+                },
+                "briefTitle": "Efficacy and Safety of Fixed Dose Combination GSP 301 Nasal Spray (NS) in the Treatment of Seasonal Allergic Rhinitis (SAR)",
+                "officialTitle": "A Double-Blind, Randomized, Parallel-Group, Comparative Study to Evaluate the Efficacy, Safety and Tolerability of a Fixed Dose Combination GSP 301 Nasal Spray (NS) Compared With Placebo Nasal Spray and Individual Monotherapy Formulations (Comparators) in Subjects (Aged 12 Years and Older) With Seasonal Allergic Rhinitis (SAR)",
+                "acronym": "GSP 301-301"
+            },
+            "eligibilityModule": {
+                "eligibilityCriteria": "Inclusion Criteria:\n\n1. Aged 12 years and older inclusive of either sex.\n2. Documented clinical history of SAR (for at least 2 years preceding the Screening Visit \\[Visit 1\\]) with exacerbations (clinical evidence of active symptoms) during the spring allergy season (tree/grass pollen)\n3. A 12-hour reflective TNSS \u2265 8 out of a possible 12 and a congestion score of \u2265 2 for the AM assessment at the Screening Visit (Visit 1).\n\nExclusion Criteria:\n\n1. Pregnant or lactating women.\n2. Plans to travel outside the known pollen area for the investigative site for \\> 24 hours during the last 7 days of run in period.\n3. History of anaphylaxis and/or other severe local reaction(s) to skin testing.\n4. History of positive test for HIV, Hepatitis B or Hepatitis C infection.\n5. Documented evidence of acute or significant chronic sinusitis or chronic purulent postnasal drip.\n6. Subjects with an active pulmonary disorder or infection.\n7. Subjects with posterior subcapsular cataracts or glaucoma",
+                "healthyVolunteers": false,
+                "sex": "ALL",
+                "minimumAge": "12 Years",
+                "stdAges": [
+                    "CHILD",
+                    "ADULT",
+                    "OLDER_ADULT"
+                ]
+            }
+        },
+        {
+            "identificationModule": {
+                "nctId": "NCT02058251",
+                "orgStudyIdInfo": {
+                    "id": "018127-002 Seq. 1"
+                },
+                "organization": {
+                    "fullName": "Medical University of South Carolina",
+                    "class": "OTHER"
+                },
+                "briefTitle": "Oxytocin Suppresses Substance Use Disorders Associated With Chronic Stress",
+                "officialTitle": "Oxytocin Suppresses Substance Use Disorders Associated With Chronic Stress"
+            },
+            "eligibilityModule": {
+                "eligibilityCriteria": "Inclusion Criteria:\n\n* Male or female; any race or ethnicity; age 21-65 years.\n* Female subjects will be required to complete the laboratory testing during the early to mid-follicular phase of their menstrual cycle (days 1-7 following the onset of menses).\n* Veteran of the US military; any service branch.\n* Able to provide informed consent and function at an intellectual level sufficient to allow accurate completion of the assessment instruments.\n* Subjects must be able to comprehend English.\n* Meet DSM-5 criteria for a current alcohol use disorder (assessed via the Mini International Neuropsychiatric Interview; MINI). Note that we will use the currently available diagnostic measure (MINI for DSM-IV) and will make appropriate modifications to update for compatibility with DSM-5.\n* Meet DSM-5 criteria for current PTSD (assessed via the Clinician Administered PTSD Scale; CAPS). Note that we will use the currently available assessment instrument (CAPS for DSM-IV), and will make appropriate modifications to update for compatibility with DSM-5.\n* A CAPS score of 50 or greater.\n* Subjects will be required to have at least 5 days of abstinence from alcohol or other substances (except caffeine or nicotine) prior to completing the laboratory testing, as verified by multiple methods including self-report, breathalyzer tests, and urine drug screen tests.\n* Subjects may also meet criteria for a mood disorder (except bipolar affective disorder, see Exclusion Criteria) or anxiety disorders (e.g., agoraphobia, social phobia, generalized anxiety disorder). The inclusion of subjects with affective and anxiety disorders is essential because of the marked frequency of the co-existence of mood and other anxiety disorders among patients with PTSD and alcohol use disorders.\n* Subjects taking psychotropic medications will be required to be maintained on a stable dose for at least eight weeks before study initiation. This is because initiation or change of psychotropic medications during the course of the trial may interfere with interpretation of results.\n* Must consent to random assignment to oxytocin or placebo.\n\nExclusion Criteria:\n\n* Subjects meeting DSM-5 criteria for a history of or current psychotic or bipolar affective disorders, or with current suicidal or homicidal ideation and intent. Those subjects will be referred clinically.\n* Subjects who would present a serious suicide risk or who are likely to require hospitalization during the course of the study. Those subjects will be referred clinically.\n* Subjects on maintenance anxiolytic, antidepressant, or mood stabilizing medications, which have been initiated during the past 8 weeks.\n* Subjects with a history of a major medical illness (e.g., endocrine, cardiovascular, central nervous system disorders, peripheral neuropathy, or pulmonary disease) or other acute or unstable medical condition that might interfere with safe conduct of the study or accurate interpretation of the results.\n* Subjects meeting DSM-5 criteria for another substance use disorder, except caffeine or nicotine, within the past 12 months.\n* Subjects experiencing withdrawal symptoms, as evidence by a score of 10 or above on the Clinical Institute Withdrawal Assessment of Alcohol (CIWA)\n* Females who are unable or unwilling to be scheduled for lab testing during the early to mid-follicular phase of their menstrual cycle.\n* Pregnant women will be excluded from the proposed study.",
+                "healthyVolunteers": false,
+                "sex": "ALL",
+                "minimumAge": "21 Years",
+                "maximumAge": "65 Years",
+                "stdAges": [
+                    "ADULT",
+                    "OLDER_ADULT"
+                ]
+            }
+        },
+        {
+            "identificationModule": {
+                "nctId": "NCT01313351",
+                "orgStudyIdInfo": {
+                    "id": "100310"
+                },
+                "organization": {
+                    "fullName": "Lumos Diagnostics",
+                    "class": "INDUSTRY"
+                },
+                "briefTitle": "RPS InflammaDry Detector\u2122 to Determine MMP-9 Levels in Tears",
+                "officialTitle": "A Clinical Evaluation of the RPS InflammaDry Detector's Sensitivity and Specificity Compared to the Clinical Diagnosis for Confirming Dry Eyes."
+            },
+            "eligibilityModule": {
+                "eligibilityCriteria": "INCLUSION CRITERIA\n\nPatients older than 18 years of age, who meet the following criteria related to the clinical history and signs will be enrolled:\n\nGroup 1: Clinical Dry Eyes\n\nClinical History Criteria\n\nAn Ocular Surface Disease Index (OSDI) of greater than or equal to 13 - \\[Appendix #2\\]\n\nClinical Signs Criteria - All of the following must be present\n\n1. Schirmer's Tear Test (with anesthesia) \\< 10 mm over 5 minutes\n2. Tear Film Break Up Time (TBUT) \\< 10 seconds\n3. Total Corneal Staining \u2265 1 \\[Appendix #1\\]\n\n   * At least 1/2 of all patients enrolled will have a Schirmer's Tear Test \\< 5 mm or demonstrate corneal staining \u2265 2 \\[Appendix #1\\]\n\nGroup 2: Clinical Normal Non-Dry Eyes\n\nClinical History Criteria\n\nAn Ocular Surface Disease Index (OSDI) of \\< 7 - \\[Appendix #2\\]\n\nClinical Signs Criteria - All 3 of the following must be present\n\n1. Schirmer's Tear Test (with anesthesia) \u2265 10 mm over 5 minutes\n2. Tear Film Break Up Time (TBUT) \u2265 10 seconds\n3. Total Corneal Staining = 0 \\[Appendix #1\\]\n\nEXCLUSION CRITERIA\n\n* Patients with allergy to corn starch, talcum powder, or dacron\n* Patients with prior eye injury, trauma, or ocular surgery within the previous 3 months\n* Patients with non-dry eye ocular inflammation, uveitis, history of herpetic keratitis or zoster keratitis\n* Patients with history of a recent ocular infection within the prior 1 month\n* Use of oral doxycycline or topical macrolides (AzaSite) within 1 month\n* Patients currently receiving, or received in the last 2 weeks of the study , certain medications including topical or systemic corticosteroids, topical or systemic Nonsteroidal (NSAIDs) therapy, topical cyclosporine, or other immunosuppressive therapy\n* Patients who are pregnant or lactating\n* Before initialization of the study, patients must not have used any topical medications, including artificial tears during the previous 2 hours\n* The use of Rigid-Gas permeable contact lenses or the use of soft-contact lenses within 1 month of the study",
+                "healthyVolunteers": true,
+                "sex": "ALL",
+                "minimumAge": "18 Years",
+                "stdAges": [
+                    "ADULT",
+                    "OLDER_ADULT"
+                ],
+                "studyPopulation": "Only patients who met the inclusion criteria were included in the study.",
+                "samplingMethod": "PROBABILITY_SAMPLE"
+            }
+        },
+        {
+            "identificationModule": {
+                "nctId": "NCT01379651",
+                "orgStudyIdInfo": {
+                    "id": "FBFBN"
+                },
+                "organization": {
+                    "fullName": "Ospedale Buon Consiglio Fatebenefratelli",
+                    "class": "OTHER"
+                },
+                "briefTitle": "Time-limited Specific Oral Tolerance Induction in Children With Severe Egg Allergy",
+                "officialTitle": "Specific Oral Tolerance Induction in Children With Severe Egg Allergy: A Randomized Controlled Trial Using a 6 Months Protocol",
+                "acronym": "EGGSOTI"
+            },
+            "eligibilityModule": {
+                "eligibilityCriteria": "Inclusion Criteria:\n\n* at least 1 anaphylactic reaction (grade 3, 4 and 5 according to Sampson's grading after accidental exposure to trace amounts of egg or egg-derivative products, requiring emergency treatment, at least 1 year before enrollment\n* demonstration of egg white specific IgE by the skin prick test (SPT), end-point SPT, raw egg white prick-by-prick (PP) and egg white-specific IgE determination\n* positive double-blind placebo-controlled food challenge (DBPCFC) at a dose of less than 0.9 ml of raw emulsion egg\n\nExclusion Criteria:\n\n* age below 5 years\n* poorly controlled asthma\n* parents with a history of unreliable management of complications and treatment.",
+                "healthyVolunteers": false,
+                "sex": "ALL",
+                "minimumAge": "5 Years",
+                "maximumAge": "11 Years",
+                "stdAges": [
+                    "CHILD"
+                ]
+            }
+        },
+        {
+            "identificationModule": {
+                "nctId": "NCT01574651",
+                "orgStudyIdInfo": {
+                    "id": "CQVA149ADE01"
+                },
+                "secondaryIdInfos": [
+                    {
+                        "id": "2011-004870-26",
+                        "type": "EUDRACT_NUMBER"
+                    }
+                ],
+                "organization": {
+                    "fullName": "Novartis",
+                    "class": "INDUSTRY"
+                },
+                "briefTitle": "The Effect of QVA149 on Health Related Quality of Life in Patients With Chronic Obstructive Pulmonary Disease (COPD)",
+                "officialTitle": "A 26-week Treatment, Multicenter, Randomized, Parallel Group, Blinded Study to Assess the Efficacy and Safety of QVA149 in Patients With Moderate to Severe Chronic Obstructive Pulmonary Disease Using Tiotropium Plus Formoterol as Control",
+                "acronym": "QUANTIFY"
+            },
+            "eligibilityModule": {
+                "eligibilityCriteria": "Inclusion Criteria:\n\n* Male or female adults aged \u2265 40 yrs\n* Patients with moderate to severe chronic obstructive pulmonary disease (GOLD 2010 guidelines)\n* Smoking history of at least 10 pack years\n* Post-bronchodilator FEV1 \\< 80% and \u226530% of the predicted normal value and post-bronchodilator FEV1/FVC (forced vital capacity) \\<70%\n\nExclusion Criteria:\n\n* Pregnant women or nursing mothers or women of child-bearing potential not using adequate contraception\n* Patients with a history of long QT syndrome\n* Patients with Type I or uncontrolled Type II diabetes\n* Patients who have had a COPD exacerbation or respiratory tract infection within 6 weeks prior to screening\n* Patients with any history of asthma\n* Patients with pulmonary lobectomy, lung volume reduction surgery, or lung transplantation\n* Patients with concomitant pulmonary disease\n* Patients requiring long term oxygen therapy (\\>15 h a day)\n\nOther protocol-defined inclusion/exclusion criteria may apply.",
+                "healthyVolunteers": false,
+                "sex": "ALL",
+                "minimumAge": "40 Years",
+                "stdAges": [
+                    "ADULT",
+                    "OLDER_ADULT"
+                ]
+            }
+        },
+        {
+            "identificationModule": {
+                "nctId": "NCT03689712",
+                "orgStudyIdInfo": {
+                    "id": "GTI-4419-301"
+                },
+                "organization": {
+                    "fullName": "Galera Therapeutics, Inc.",
+                    "class": "INDUSTRY"
+                },
+                "briefTitle": "ROMAN: Phase 3 Trial Investigating the Effects of GC4419 on Radiation Induced Oral Mucositis in Head/Neck Cancer Patients",
+                "officialTitle": "ROMAN: Reduction in Oral Mucositis With Avasopasem Manganese (GC4419) - Phase 3 Trial in Patients Receiving Chemoradiotherapy for Locally-Advanced, Non-Metastatic Head and Neck Cancer"
+            },
+            "eligibilityModule": {
+                "eligibilityCriteria": "Inclusion Criteria:\n\n* squamous cell carcinoma of the head and neck\n* treatment plan to receive IMRT delivered as single daily fractions of 2.0 to 2.2 Gy with a cumulative radiation dose of 60-72 Gy\n* Treatment plan to receive standard cisplatin monotherapy\n* Age 18 years or older\n* Eastern Cooperative Oncology Group (ECOG) performance status \u2264 2\n* Adequate hematologic, renal and liver function\n* Negative serum pregnancy test\n* Use of effective contraception\n\nExclusion Criteria:\n\n* Tumor of the lips, larynx, hypopharynx, nasopharynx, sinuses, or salivary glands\n* Metastatic disease\n* Prior radiotherapy to the region of the study cancer or adjacent anatomical\n* Prior induction chemotherapy\n* Receiving any approved or investigational anti-cancer agent other than those provided for in this study\n* Concurrent participation in another interventional clinical study\n* Inability to eat soft solid food at baseline\n* Malignant tumors other than HNC within the last 5 years\n* Active infectious disease excluding oral candidiasis\n* Presence of oral mucositis at baseline\n* Known history of HIV or active hepatitis B/C\n* Female patients who are pregnant or breastfeeding\n* Known allergies or intolerance to cisplatin and similar platinum-containing compounds\n* Requirement for concurrent treatment with nitrates or other drugs that may create a risk for a precipitous decrease in blood pressure",
+                "healthyVolunteers": false,
+                "sex": "ALL",
+                "minimumAge": "18 Years",
+                "stdAges": [
+                    "ADULT",
+                    "OLDER_ADULT"
+                ]
+            }
+        },
+        {
+            "identificationModule": {
+                "nctId": "NCT05319912",
+                "orgStudyIdInfo": {
+                    "id": "WTX101-102"
+                },
+                "secondaryIdInfos": [
+                    {
+                        "id": "CA13895",
+                        "type": "OTHER",
+                        "domain": "Celerion"
+                    }
+                ],
+                "organization": {
+                    "fullName": "Alexion Pharmaceuticals, Inc.",
+                    "class": "INDUSTRY"
+                },
+                "briefTitle": "A Study of ALXN1840 (Coated and Non-coated) Administered With And Without Omeprazole In Healthy Adults",
+                "officialTitle": "A Phase 1, Single-Center, Randomized, 3-Period Crossover Study in Healthy Volunteers to Evaluate the Absorption of WTX101 After Single Dose Administration of an Enteric Coated Formulation With and Without Food and a Non-Coated Formulation Coadministered With a Proton Pump Inhibitor Without Food"
+            },
+            "eligibilityModule": {
+                "eligibilityCriteria": "Inclusion Criteria:\n\n* Non-smoker\n* Medically healthy with no clinically significant laboratory profiles, vital signs, or electrocardiograms.\n* Body mass index \u2265 18 and \u2264 32.0 kilograms/meter squared.\n* Willing and able to adhere to contraception requirements.\n\nExclusion Criteria:\n\n* Participant was mentally or legally incapacitated\n* History or presence of clinically significant medical or psychiatric condition or disease.\n* History of any illness that might have interfered with drug absorption.\n* History or presence of hypersensitivity or idiosyncratic reaction to the study medications, study medication excipients.\n* History or presence of alcoholism or drug abuse.\n* Female participants who were pregnant or lactating.\n* Positive results at screening for human immunodeficiency virus, hepatitis B surface antigen, or hepatitis C virus.\n* Serum ceruloplasmin and copper values outside of the normal range at screening.\n* On a diet incompatible with the on-study diet within the 28 days prior to the first ALXN1840 dose and throughout the study; unable to consume the contents of a high-fat breakfast.\n* Participation in a previous clinical trial with ALXN1840.",
+                "healthyVolunteers": true,
+                "sex": "ALL",
+                "minimumAge": "19 Years",
+                "maximumAge": "55 Years",
+                "stdAges": [
+                    "ADULT"
+                ]
+            }
+        }
+    ]
+}
