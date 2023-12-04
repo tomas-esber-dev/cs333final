@@ -60,10 +60,16 @@ public class QueryProcessor {
             if (trueMatchings.containsKey(patientTrialMatch)) {
                 if (trueMatchings.get(patientTrialMatch) == predictedMatchings.get(patientTrialMatch)) {
                     correctlyMatched++;
+                } else {
+                    System.out.println("Wrong");
+                    System.out.println(patientTrialMatch);
                 }
             } else {
                 if (!predictedMatchings.get(patientTrialMatch)) {
                     correctlyMatched++;
+                } else {
+                    System.out.println("Wrong");
+                    System.out.println(patientTrialMatch);
                 }
             }
             totalSeen++;

@@ -1,0 +1,242 @@
+<!doctype html>
+<html id="doc">
+  <head><meta charset="utf-8"/>
+    <title>Stuff</title>
+    <link rel="stylesheet" href="tree.css"/>
+    <style>
+      .content {
+        display: none;
+      }
+
+    .active {
+        display: block;
+      }
+
+    .tree ul {
+        padding-top: 20px;
+        position: relative;
+        transition: all 0.5s;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+      }
+      
+      .tree li {
+        float: left;
+        text-align: center;
+        list-style-type: none;
+        position: relative;
+        padding: 20px 5px 0 5px;
+        transition: all 0.5s;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+      }
+      
+      .tree li::before,
+      .tree li::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 50%;
+        border-top: 1px solid #ccc;
+        width: 50%;
+        height: 20px;
+      }
+      
+      .tree li::after {
+        right: auto;
+        left: 50%;
+        border-left: 1px solid #ccc;
+      }
+      
+      .tree li:only-child::after,
+      .tree li:only-child::before {
+        display: none;
+      }
+      
+      .tree li:only-child {
+        padding-top: 0;
+      }
+      
+      .tree li:first-child::before,
+      .tree li:last-child::after {
+        border: 0 none;
+      }
+      
+      .tree li:last-child::before {
+        border-right: 1px solid #ccc;
+        border-radius: 0 5px 0 0;
+        -webkit-border-radius: 0 5px 0 0;
+        -moz-border-radius: 0 5px 0 0;
+      }
+      
+      .tree li:first-child::after {
+        border-radius: 5px 0 0 0;
+        -webkit-border-radius: 5px 0 0 0;
+        -moz-border-radius: 5px 0 0 0;
+      }
+      
+      .tree ul ul::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        border-left: 1px solid #ccc;
+        width: 0;
+        height: 20px;
+      }
+      
+      .tree li div {
+        border: 1px solid #ccc;
+        padding: 5px 10px;
+        text-decoration: none;
+        color: #666;
+        font-family: arial, verdana, tahoma;
+        font-size: 11px;
+        display: inline-block;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        transition: all 0.5s;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+      }
+      
+      .tree li div:hover,
+      .tree li div:hover+ul li div {
+        background: #c8e4f8;
+        color: #000;
+        border: 1px solid #94a0b4;
+      }
+      
+      .tree li div:hover+ul li::after,
+      .tree li div:hover+ul li::before,
+      .tree li div:hover+ul::before,
+      .tree li div:hover+ul ul::before {
+        border-color: #94a0b4;
+      }
+    </style>
+  </head>
+  <body>
+
+    <label for="htmlSelector">Select Semantic Tree To Visualize:</label>
+    <select id="htmlSelector" onchange="toggleContent()">
+    <option value="tree1">Inclusion Criteria</option>
+    <option value="tree2">Exclusion Criteria</option>
+    <!-- Add more options as needed -->
+    </select>
+
+    <div id="tree1" class="tree content active">
+      <ul>
+        <li>
+          <div> OR </div>
+          <ul>
+            <li>
+              <div>other neuroendocrine tumors</div>
+            </li>
+            <li>
+              <div>AND</div>
+              <ul>
+                <li>
+                  <div>metastatic carcinoid tumors</div>
+                </li>
+                <li>
+                  <div>HAS VALUE</div>
+                  <ul>
+                    <li>
+                      <div>proven</div>
+                    </li>
+                    <li>
+                      <div>biopsy</div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div>
+        Patients with biopsy-proven metastatic carcinoid tumors or other neuroendocrine tumors
+      </div>
+    </div>
+
+    <div id="tree2" class="tree content">
+      <ul>
+        <li>
+          <div>AND</div>
+          <ul>
+            <li>
+              <div>AND</div>
+              <ul>
+                <li>
+                  <div>Psychosis</div>
+                </li>
+                <li>
+                  <div>Tourette syndrome</div>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div>AND</div>
+              <ul>
+                <li>
+                  <div>HAS VALUE</div>
+                  <ul>
+                    <li>
+                      <div>SUBSUMES</div>
+                      <ul>
+                        <li>
+                          <div>Intelligence quotient</div>
+                        </li>
+                        <li>
+                          <div>IQ</div>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <div>&lt; 70</div>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <div>SUBSUMES</div>
+                  <ul>
+                    <li>
+                      <div>Pervasive developmental disorder</div>
+                    </li>
+                    <li>
+                      <div>PDD</div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div>
+        Psychosis. 
+        Tourette syndrome. 
+        Intelligence quotient (IQ) &lt; 70. 
+        Pervasive developmental disorder (PDD).
+      </div>
+    </div>
+  </body>
+  <!-- https://stackoverflow.com/questions/15000341/how-to-display-a-binary-search-tree-using-css-html-and-a-bit-of-javascript -->
+  <script>
+      function toggleContent() {
+      var selector = document.getElementById("htmlSelector");
+      var selectedValue = selector.value;
+
+      // Hide all content divs
+      var contentDivs = document.querySelectorAll(".content");
+      contentDivs.forEach(function (div) {
+        div.classList.remove("active");
+      });
+
+      // Show the selected content div
+      var selectedDiv = document.getElementById(selectedValue);
+      selectedDiv.classList.add("active");
+    }
+  </script>
+</html>
